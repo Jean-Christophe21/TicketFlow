@@ -3,11 +3,12 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["**/node_modules", "**/Pods"],
   "compilerOptions": {
-    "baseUrl": ".",
+   "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
     "moduleResolution": "bundler",
+
     "resolvePackageJsonImports": true
   }
 }
