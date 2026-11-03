@@ -1,4 +1,3 @@
-
 export type Role = "utilisateur" | "agent";
 
 export interface Auteur {
@@ -11,7 +10,7 @@ export interface Auteur {
     updated_at: string;
 }
 
-export interface Comments {
+export interface CommentsInput {
     id: number;
     ticket_id: number;
     utilisateur_id: number;
@@ -19,4 +18,9 @@ export interface Comments {
     created_at: string;
     updated_at: string;
     auteur: Auteur;
+}
+
+export interface CommentsResponse {
+    success: boolean;
+    data: CommentsInput[];
 }
