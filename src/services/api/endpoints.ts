@@ -4,7 +4,9 @@ export const ENDPOINTS = {
   // Authentification 
   login: "/login",
   register: "/register",
-  comment: "/comment",
+  postcomment: "/comment",
+  getcomment: (ticketId: number) =>
+    `/tickets/${ticketId}/commentaires`,
 
 
 
