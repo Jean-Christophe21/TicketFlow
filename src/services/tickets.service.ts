@@ -10,13 +10,17 @@ import {
 } from '../types/ticket.types.ts';
 import { ENDPOINTS } from './api/endpoints.ts';
 
-export async function getUserAllDemandes(employeId: number): Promise<DemandesResponse> {
-  // console.log(response.data);
-  return await httpService.get(`${ENDPOINTS.user}/${employeId}/${ENDPOINTS.tickets}/`);
+export async function getUserAllDemandes(
+  employeId: number,
+): Promise<DemandesResponse> {
+  return await httpService.get(
+    `${ENDPOINTS.user}/${employeId}${ENDPOINTS.tickets}`,
+  );
 }
 
-export async function getUserDemandesById(id: number): Promise<DemandeResponse> {
-
+export async function getUserDemandesById(
+  id: number,
+): Promise<DemandeResponse> {
   return await httpService.get(`/${ENDPOINTS.tickets}/${id}`);
 }
 
@@ -28,12 +32,20 @@ export async function modifyDemande(id: number, demande: ModificationDemande) {
   return await httpService.put(`/${ENDPOINTS.tickets}/${id}`, demande);
 }
 
-export async function modifyDemandeStatus(id: number, demandeStatus: StatusOfDemande,) {
-  return await httpService.put(`/${ENDPOINTS.tickets}/${id}/status`, demandeStatus);
+export async function modifyDemandeStatus(
+  id: number,
+  demandeStatus: StatusOfDemande,
+) {
+  return await httpService.put(
+    `/${ENDPOINTS.tickets}/${id}/status`,
+    demandeStatus,
+  );
 }
 
-export async function assignTechnicianToDemand(demandeId: number, technician: TechnicianId): Promise<AssignResponse>
-{
+export async function assignTechnicianToDemand(
+  demandeId: number,
+  technician: TechnicianId,
+): Promise<AssignResponse> {
   return await httpService.put(
     `/${ENDPOINTS.tickets}/${demandeId}/assign`,
     technician,
