@@ -15,8 +15,8 @@ import {
 import { login } from './src/services';
 import RootNavigation from './src/navigation/RootNavigator';
 import useComments from './src/hooks/useComments';
-
-
+import { NavigationContainer } from '@react-navigation/native';
+import MainTabNavigator from './src/components/layout/MainTabNavigator';
 function App() {
   useEffect(()=>{
     login(
@@ -45,6 +45,9 @@ function AppContent() {
     <View style={styles.container}>
 
            <RootNavigation />
+           <NavigationContainer>
+         <MainTabNavigator />
+      </NavigationContainer>
 
       
     </View>
