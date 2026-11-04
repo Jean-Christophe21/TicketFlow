@@ -3,7 +3,7 @@ import {API_URL,API_VERSION} from '@env';
 
 const axiosInstance = axios.create({
   // url de l'api
-  baseURL: API_URL+API_VERSION,
+  baseURL: `${API_URL}${API_VERSION}`,
   //    withCredentials:true
 });
 
