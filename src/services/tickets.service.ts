@@ -28,8 +28,8 @@ export async function modifyDemande(id: number, demande: ModificationDemande) {
   return await httpService.put(`/${ENDPOINTS.tickets}/${id}`, demande);
 }
 
-export async function modifyDemandeStatus(id: number, demande: StatusOfDemande,) {
-  return await httpService.put(`/${ENDPOINTS.tickets}/${id}/status`, demande);
+export async function modifyDemandeStatus(id: number, demandeStatus: StatusOfDemande,) {
+  return await httpService.put(`/${ENDPOINTS.tickets}/${id}/status`, demandeStatus);
 }
 
 export async function assignTechnicianToDemand(demandeId: number, technician: TechnicianId): Promise<AssignResponse>
