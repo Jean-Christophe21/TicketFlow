@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Demande,
   StoreDemande,
@@ -13,13 +13,14 @@ export const useTickets = () => {
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const userId: number = 5;
+  const userId: number = 2;
 
   const fetchTickets = async () => {
     setLoading(true);
     try {
       const response = await getUserAllDemandes(userId);
       setTickets(response.data);
+      console.log("tickets in usetickets:", response.data);
     } catch (err) {
       setError(err as Error);
     } finally {
@@ -27,7 +28,11 @@ export const useTickets = () => {
     }
   };
 
-  return { tickets, error, loading, fetchTickets };
+  useEffect(() => {
+    fetchTickets();
+  }, []);
+
+  return { tickets, error, loading };
 };
 
 
