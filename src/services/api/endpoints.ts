@@ -1,10 +1,8 @@
 // Authentification
- export  const ENDPOINTS = {
-    
-    // Authentification 
-  login : "/login",
-  register : "/register",
-
-
-
- }
+export const ENDPOINTS = {
+  // Authentification
+  login: '/login',
+  register: '/register',
+  tickets: '/demandes',
+  user: '/user',
+};
