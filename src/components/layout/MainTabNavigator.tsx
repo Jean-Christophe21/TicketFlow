@@ -19,6 +19,13 @@ function TicketScreen() {
   );
 }
 
+function AjouterScreen() {
+  return (
+    <View style={styles.screen}>
+      <Text style={styles.text}>Ajouter</Text>
+    </View>
+  );
+}
 function ProfileScreen() {
   return (
     <View style={styles.screen}>
@@ -58,6 +65,7 @@ export default function MainTabNavigator() {
     >
       <Tab.Screen name="Accueil" component={HomeScreen} />
       <Tab.Screen name="Ticket" component={TicketScreen} />
+      <Tab.Screen name="Ajouter" component={AjouterScreen} />
       <Tab.Screen name="Profil" component={ProfileScreen} />
     </Tab.Navigator>
   );
