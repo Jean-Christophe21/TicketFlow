@@ -5,15 +5,18 @@
  * @format
  */
 import { NewAppScreen } from '@react-native/new-app-screen';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+
 import { login } from './src/services';
-
-
+import RootNavigation from './src/navigation/RootNavigator';
+import useComments from './src/hooks/useComments';
+import { NavigationContainer } from '@react-navigation/native';
+import MainTabNavigator from './src/components/layout/MainTabNavigator';
 function App() {
   useEffect(()=>{
     login(
@@ -22,6 +25,10 @@ function App() {
       }
     )
   })
+  
+  const comments = useComments(4);
+  console.log("Comments", comments);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
@@ -33,14 +40,16 @@ function App() {
 }
 
 function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+
+           <RootNavigation />
+           <NavigationContainer>
+         <MainTabNavigator />
+      </NavigationContainer>
+
+      
     </View>
   );
 }
