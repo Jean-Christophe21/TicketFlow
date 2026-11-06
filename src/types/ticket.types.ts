@@ -28,11 +28,12 @@ export type Demande = {
 export const demandeStatus = {
   open: 'ouvert',
   pending: 'en_cours',
-  closed: 'ferme',
   resolved: 'resolu',
 } as const;
 
 export type DemandeStatus = (typeof demandeStatus)[keyof typeof demandeStatus];
+
+export type TicketFilter = 'tous' | DemandeStatus;
 
 export type StoreDemande = {
   title: string;
@@ -85,4 +86,11 @@ export type DashboardInfos = {
 
 export type DashboardInfosResponse = {
   data: DashboardInfos;
+};
+
+export type TicketCounts = {
+  Tous: number;
+  Ouverts: number;
+  Resolus: number;
+  EnAttente: number;
 };
