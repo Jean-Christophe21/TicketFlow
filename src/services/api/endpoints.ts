@@ -5,4 +5,7 @@ export const ENDPOINTS = {
   register: '/register',
   tickets: '/demandes',
   user: '/user',
-};
+  postcomment: "/commentaires",
+  getcomment: (ticketId: number) =>
+    `/tickets/${ticketId}/commentaires`,
+}
